@@ -17,20 +17,12 @@ class Securd extends Client {
         this.util = new (require("./util"))(this);
         this.botemojis = require("../emojis")
 
+
         this.database = new Sequelize({
-            host: process.env.DB_HOST,
-            username: process.env.DB_USER,
-            password: process.env.DB_PASS,
-            database: process.env.DB_NAME,
-            dialect: "mysql",
             logging: false,
-            define: {
-                timestamps: false,
-                freezeTableName: true,
-                charset: "utf8mb4",
-                collate: "utf8mb4_general_ci",
-            }
-        })
+            dialect: 'sqlite',
+            storage: 'database.sqlite'
+          });
 
         this.init();
     }
